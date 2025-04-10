@@ -172,29 +172,29 @@ function initializeDecks() {
         // Asignar un URL único para cada deck usando el atributo 'data-url'
         let url;
         switch (item.textContent.trim()) {
-            case 'Joey Wheeler':
-                url = 'https://ygoprodeck.com/deck/torneo-joey-wheeler-589821';
+            case 'Warrior´s Heart (Joey Wheeler)':
+                url = 'https://ygoprodeck.com/deck/warrior-s-heart-joey-wheeler-589821';
                 break;
-            case 'Mai Valentine':
-                url = 'https://www.example.com/mai-valentine';
+            case 'Harpie´s Elegance (Mai Valentine)':
+                url = 'https://ygoprodeck.com/deck/harpie-s-elegance-mai-valentine-590189';
                 break;
-            case 'Mako Tsunami':
-                url = 'https://www.example.com/mako-tsunami';
+            case 'Ocean´s Fury (Mako Tsunami)':
+                url = 'https://ygoprodeck.com/deck/ocean-s-fury-mako-tsunami-590190';
                 break;
-            case 'Maximiliam Pegasus':
-                url = 'https://www.example.com/pegasus';
+            case 'Kingdom of Cartoons (Maximiliam Pegasus)':
+                url = 'https://ygoprodeck.com/deck/kingdom-of-cartoons-maximiliam-pegasus-590191';
                 break;
-            case 'Rex Raptor':
-                url = 'https://www.example.com/rex-raptor';
+            case 'Jurassic Fury (Rex Raptor)':
+                url = 'https://ygoprodeck.com/deck/jurassic-fury-rex-raptor-590192';
                 break;
-            case 'Seto Kaiba':
-                url = 'https://www.example.com/seto-kaiba';
+            case 'Wrath of the Blue Dragon (Seto Kaiba)':
+                url = 'https://ygoprodeck.com/deck/wrath-of-the-blue-dragon-seto-kaiba-590194';
                 break;
-            case 'Weevil Underwood':
-                url = 'https://www.example.com/weevil-underwood';
+            case 'Insect Kingdoms (Weevil Underwood)':
+                url = 'https://ygoprodeck.com/deck/insect-kingdoms-weevil-underwood-590195';
                 break;
-            case 'Yugi Muto':
-                url = 'https://www.example.com/yugi-muto';
+            case 'Heart´s Power (Yugi Muto)':
+                url = 'https://ygoprodeck.com/deck/heart-s-power-yugi-muto-590196';
                 break;
             default:
                 url = 'https://www.example.com';
