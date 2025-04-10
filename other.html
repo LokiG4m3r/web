@@ -1,0 +1,36 @@
+<section id="other">
+    <h2>Trailer</h2>
+    <div class="video-container">
+        <video controls>
+            <source src="prueba.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+        </video>
+    </div>
+</section>
+
+<style>
+    .video-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(145deg, rgba(44, 62, 80, 0.6), rgba(26, 35, 50, 0.8));
+        padding: 1rem;
+        border: 1px solid rgba(155, 77, 202, 0.2);
+    }
+
+    video {
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .video-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(155, 77, 202, 0.3);
+        border-color: var(--primary-color);
+        transition: all 0.3s ease;
+    }
+</style>

@@ -1,0 +1,299 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo Yu-Gi-Oh!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="importmap">
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+      }
+    }
+    </script>
+    <style>
+      :root {
+          --primary-color: #1e88e5;
+          --secondary-color: #0d47a1;
+          --accent-color: #64b5f6;
+          --text-color: #ffffff;
+          --background-color: #0a192f;
+          --gradient-start: rgba(10, 25, 47, 0.95);
+          --gradient-end: rgba(23, 42, 69, 0.95);
+          --font-main: 'Orbitron', 'Rajdhani', 'Audiowide', sans-serif;
+      }
+
+      body {
+          font-family: var(--font-main);
+          margin: 0;
+          padding: 0;
+          background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%), url('assets/fondo.jpg') ;
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+          color: var(--text-color);
+          line-height: 1.6;
+          min-height: 100vh;
+          opacity: 0.95;
+        }
+ 
+      header {
+          background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+          padding: 2.5rem 0;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          backdrop-filter: blur(5px);
+      }
+      
+      header::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+              radial-gradient(circle at 20% 50%, rgba(30, 136, 229, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, rgba(100, 181, 246, 0.1) 0%, transparent 50%);
+          z-index: 0;
+      }
+
+      header h1 {
+          font-family: var(--font-main);
+          font-weight: 800;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          margin: 0;
+          font-size: 3.5rem;
+          background: linear-gradient(45deg, var(--primary-color), #fff);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          position: relative;
+          z-index: 1;
+          text-shadow: 0 0 15px rgba(30, 136, 229, 0.3);
+          animation: glow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow {
+          from { text-shadow: 0 0 15px rgba(30, 136, 229, 0.3); }
+          to { text-shadow: 0 0 25px rgba(30, 136, 229, 0.5); }
+      }
+
+      main {
+          max-width: 1200px;
+          margin: 2rem auto;
+          padding: 0 2rem;
+      }
+
+      #tournament-info, #content {
+          background: linear-gradient(145deg, rgba(23, 42, 69, 0.8), rgba(10, 25, 47, 0.9));
+          border-radius: 15px;
+          padding: 2rem;
+          margin-bottom: 2rem;
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+          position: relative;
+          overflow: hidden;
+      }
+
+      #tournament-info::after {
+          content: '';
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 100px;
+          height: 100px;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 L90 20 L90 80 L50 95 L10 80 L10 20 Z' fill='none' stroke='rgba(155, 77, 202, 0.2)' stroke-width='2'/%3E%3Cpath d='M30 40 L70 40 L50 70 Z' fill='none' stroke='rgba(155, 77, 202, 0.2)' stroke-width='2'/%3E%3C/svg%3E");
+          opacity: 0.3;
+          pointer-events: none;
+      }
+
+      #navigation {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1rem;
+          margin: 2rem 0;
+      }
+
+      button {
+          font-family: var(--font-main);
+          letter-spacing: 1.5px;
+          background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+          color: var(--text-color);
+          border: none;
+          padding: 1rem 2rem;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 1rem;
+          font-weight: 600;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          text-transform: uppercase;
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+      }
+
+      button::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.2));
+          transition: 0.5s;
+          z-index: -1;
+      }
+
+      button:hover::before {
+          left: 100%;
+      }
+
+      button:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 25px rgba(30, 136, 229, 0.3);
+      }
+
+      .card-decoration {
+          position: fixed;
+          bottom: 20px;
+          left: 20px;
+          width: 120px;
+          height: 175px;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 116'%3E%3Crect x='2' y='2' width='76' height='112' rx='4' fill='none' stroke='rgba(155, 77, 202, 0.2)' stroke-width='2'/%3E%3Crect x='6' y='6' width='68' height='40' fill='none' stroke='rgba(155, 77, 202, 0.2)' stroke-width='1'/%3E%3C/svg%3E");
+          opacity: 0.2;
+          pointer-events: none;
+      }
+
+      section {
+          animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+
+      h2 {
+          font-family: var(--font-main);
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          color: var(--primary-color);
+          font-size: 2.2rem;
+          margin-bottom: 1.5rem;
+          position: relative;
+          padding-bottom: 0.5rem;
+      }
+
+      h2::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 60px;
+          height: 4px;
+          background: var(--primary-color);
+          border-radius: 2px;
+      }
+
+      h3 {
+          font-family: var(--font-main);
+          font-weight: 500;
+          letter-spacing: 1px;
+      }
+
+      ul {
+          list-style: none;
+          padding: 0;
+      }
+
+      li {
+          padding: 1rem;
+          margin-bottom: 0.5rem;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 8px;
+          transition: transform 0.2s ease;
+      }
+
+      li:hover {
+          transform: translateX(10px);
+      }
+
+      footer {
+          background: linear-gradient(135deg, rgba(10, 25, 47, 0.95) 0%, rgba(23, 42, 69, 0.95) 100%);
+          padding: 2rem 0;
+          text-align: center;
+          margin-top: 4rem;
+          position: relative;
+          overflow: hidden;
+      }
+
+      footer::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+      }
+
+
+      @media (max-width: 768px) {
+          header h1 {
+              font-size: 2.5rem;
+          }
+
+          main {
+              padding: 0 1rem;
+          }
+
+          #navigation {
+              grid-template-columns: 1fr;
+          }
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>¡Torneo Yu-Gi-Oh!</h1>
+    </header>
+    <main>
+        <div class="card-decoration"></div>
+        <section id="tournament-info">
+            <h2>Información del Torneo</h2>
+            <p><strong>Fecha:</strong> 27 de Abril, 2024</p>
+            <p><strong>Lugar:</strong> Twitch y Youtube</p>
+            <p><strong>Formato:</strong> Goat</p>
+            <p><strong>Premios:</strong>
+                <ul>
+                    <li><strong>Primer Lugar:</strong> Trofeo, Booster Box y Playmat Exclusivo</li>
+                    <li><strong>Segundo Lugar:</strong> Booster Box y Playmat</li>
+                    <li><strong>Top 8:</strong> Playmat</li>
+                </ul>
+            </p>
+        </section>
+
+        <div id="navigation">
+            <button data-target="participants.html">Participantes</button>
+            <button data-target="decks.html">Decks</button>
+            <button data-target="rules.html">Reglas del Torneo</button>
+            <button data-target="other.html">Trailer</button>
+        </div>
+
+        <div id="content">
+            <!-- Content will be loaded here -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Torneo Yu-Gi-Oh! | Diseñado por LokiGamer</p>
+    </footer>
+    <script src="script.js" type="module"></script>
+</body>
+</html>

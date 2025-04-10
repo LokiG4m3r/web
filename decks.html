@@ -1,0 +1,90 @@
+<section id="decks">
+    <h2>Decks Permitidos</h2>
+    <ul class="deck-list">
+        <li class="deck-item">
+            Joey Wheeler
+            <img src="deck1.png" class="deck-image" alt="Deck Joey Wheeler" />
+        </li>
+        <li class="deck-item">
+            Mai Valentine
+            <img src="deck1.png" class="deck-image" alt="Deck Mai Valentine" />
+        </li>
+        <li class="deck-item">
+            Mako Tsunami
+            <img src="deck1.png" class="deck-image" alt="Deck Mako Tsunami" />
+        </li>
+        <li class="deck-item">
+            Maximiliam Pegasus
+            <img src="deck1.png" class="deck-image" alt="Deck Maximiliam Pegasus" />
+        </li>
+        <li class="deck-item">
+            Rex Raptor
+            <img src="deck1.png" class="deck-image" alt="Deck Rex Raptor" />
+        </li>
+        <li class="deck-item">
+            Seto Kaiba
+            <img src="deck1.png" class="deck-image" alt="Deck Seto Kaiba" />
+        </li>
+        <li class="deck-item">
+            Weevil Underwood
+            <img src="deck1.png" class="deck-image" alt="Deck Weevil Underwood" />
+        </li>
+        <li class="deck-item">
+            Yugi Muto
+            <img src="deck1.png" class="deck-image" alt="Deck Yugi Muto" />
+        </li>
+    </ul>
+</section>
+
+
+<style>
+    .deck-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.deck-item {
+    background: linear-gradient(145deg, rgba(23, 42, 69, 0.6), rgba(10, 25, 47, 0.8));
+    border: 1px solid rgba(30, 136, 229, 0.2);
+    margin: 1rem 0;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+
+.deck-item img {
+    display: none; /* Ocultar la imagen inicialmente */
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+
+.deck-item.expanded img {
+    display: block; /* Mostrar la imagen cuando se expanda */
+}
+
+.details-button {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #1e88e5;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .details-button:hover {
+        background-color: #1565c0;
+    }
+
+</style>
