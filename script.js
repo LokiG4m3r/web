@@ -227,7 +227,7 @@ function initializeDecks() {
         detailsButton.addEventListener('click', (e) => {
             e.stopPropagation(); // Evitar que el clic en el botón expanda el deck
             const url = detailsButton.getAttribute('data-url');
-            window.location.href = url; // Redirigir al usuario a la URL definida
+            window.open(url, '_blank'); // Redirigir al usuario a la URL definida
         });
     });
 }
