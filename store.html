@@ -1,0 +1,87 @@
+<section id="store">
+    <h2>Tienda de Cartas</h2>
+    <div class="card-list">
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="assets/card1.jpg" alt="Carta 1">
+            <h3>Carta Poderosa</h3>
+            <p>Valor: 100 Tokens</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="assets/card2.jpg" alt="Carta 2">
+            <h3>Carta Mística</h3>
+            <p>Valor: 80 Tokens</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="assets/card3.jpg" alt="Carta 3">
+            <h3>Carta Legendaria</h3>
+            <p>Valor: 150 Tokens</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="assets/card4.jpg" alt="Carta 4">
+            <h3>Carta Sagrada</h3>
+            <p>Valor: 120 Tokens</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    
+    #store {
+    background: rgba(10, 25, 47, 0.8);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+#store h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 5rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin: 1rem 0
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    height: auto;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.card p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+    
+</style>
